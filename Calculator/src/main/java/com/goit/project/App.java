@@ -28,7 +28,9 @@ public class App {
             String result = "";
             try {
                 result = compute.computeStringExpression(item);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+                result = "Error";
+            }
             model.put("result", result);
 
             return new ModelAndView(model, "calculator.ftl");
@@ -42,7 +44,9 @@ public class App {
                 String result = "";
                 try {
                     result = compute.computeStringExpression(stringExpression);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                    result = "Error";
+                }
 
                 response.status(200);
                 response.type("application/text");

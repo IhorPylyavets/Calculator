@@ -3,6 +3,7 @@ package com.goit.project.arithmetic;
 import com.goit.project.expression.Expression;
 import com.goit.project.expression.ExpressionElement;
 import com.goit.project.expression.ExpressionElementType;
+import com.goit.project.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,16 @@ public class Compute {
         result = expressDecision(expression.elementSet);
 
         return result;
+    }
+
+    public String computeStringExpression(String stringExpression) {
+        Parser parser = new Parser();
+        Expression expression = parser.parseExpression(stringExpression);
+
+        Compute compute = new Compute();
+        double result = compute.computeExpression(expression);
+
+        return Double.toString(result);
     }
 
     private boolean isParenthesis(Expression expression) {
